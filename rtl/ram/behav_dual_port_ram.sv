@@ -1,6 +1,7 @@
+// Only works for simulation
 // File: rtl/ram/behav_dual_port_ram.sv
 module behav_dual_port_ram #(
-    parameter DATA_WIDTH = 32,
+    parameter DATA_WIDTH s= 32,
     parameter ADDR_WIDTH = 10
 )(
     input  wire clk_a,
