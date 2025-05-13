@@ -24,7 +24,7 @@ module Memory_Subsystem #(
                 dma_control <= data_in; // Control register write
             end
 
-    
+    // Bank Arbitration
     always_comb begin
         // robin-robin arbitration
         bank_grants = 4'b0000;
