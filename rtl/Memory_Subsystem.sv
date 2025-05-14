@@ -46,11 +46,15 @@ module Memory_Subsystem #(
 
     // Bank Arbitration
     always_comb begin
-        // robin-robin arbitration
-        for (int i = 0; i < 4; i++) begin
-            if (bank_request[i]) begin
-                bank_grant[i] = 1'b1;
-                break;
+        bank_grant = 4'b0000;  // Default grant state
+
+        // Round-robin arbitration using disable
+        begin : arbitration_loop
+            for (int i = 0; i < 4; i++) begin
+                if (bank_request[i]) begin
+                    bank_grant[i] = 1'b1;
+                    disable arbitration_loop;  // Exit loop after first grant
+                end
             end
         end
     end
