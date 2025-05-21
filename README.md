@@ -27,16 +27,25 @@ A high-performance AI accelerator implementation with multi-core processing and 
 - Quantization-aware processing
 
 ## 📂 Project Structure
-
-├── rtl/
-│ ├── AI_Accelerator.sv # Top-level module
-│ ├── Arithmetic_Units.sv # MAC implementation
-│ ├── Memory_Subsystem.sv # Memory controller + arbitration
+```
+AI_Accelerator/
+├── Makefile # Build automation
+├── rtl/ # RTL source code
+│ ├── AI_Accelerator.sv # Top-level accelerator
+│ ├── AI_Core.sv # Processing core implementation
+│ ├── Memory_Subsystem.sv # Memory controller + DMA
+│ ├── Arithmetic_Units.sv # MAC units and math ops
+│ ├── weight_mem.sv # Weight storage memory
 │ └── ram/ # Memory components
-│ └── behav_dual_port_ram.sv # Dual-port RAM
-├── tb/
-│ └── Memory_Subsystem_tb.sv # Memory subsystem testbench
-
+│ └── behav_dual_port_ram.sv
+├── tb/ # Verification components
+│ ├── Memory_Subsystem_tb.sv # Memory subsystem tests
+│ ├── test # Test scripts
+│ └── test.sv # Main test suite
+├── docs/ # Documentation
+├── images/ # Diagrams
+└── scripts/ # Tooling scripts
+```
 
 ## 💻 Getting Started
 
